@@ -1,0 +1,17 @@
+weight class,vehicle type,duty cycle,Assumption Source,powertrain type,simulation weight,empty weight,cargo capacity,baseline mpg,segment,classfier_1,classfier_2,operation_type,spd_bin_min,spd_bin_max,fuel_rate
+8,sleeper tractor,test,test,a,test,test,test,5,LH,test,test,road,20,30,40
+8,sleeper tractor,test,test,a,test,test,test,5,LH,test,test,road,30,40,30
+8,sleeper tractor,test,test,a,test,test,test,5,LH,test,test,road,40,50,20
+8,sleeper tractor,test,test,a,test,test,test,5,LH,test,test,idling,0,0,10
+8,sleeper tractor,test,test,b,test,test,test,5,LH,test,test,road,20,30,38
+8,sleeper tractor,test,test,b,test,test,test,5,LH,test,test,road,30,40,28
+8,sleeper tractor,test,test,b,test,test,test,5,LH,test,test,road,40,50,18
+8,sleeper tractor,test,test,b,test,test,test,5,LH,test,test,idling,0,0,20
+6,pickup & delivery,test,test,a,test,test,test,10,RH,test,test,road,20,30,50
+6,pickup & delivery,test,test,a,test,test,test,10,RH,test,test,road,30,40,40
+6,pickup & delivery,test,test,a,test,test,test,10,RH,test,test,road,40,50,30
+6,pickup & delivery,test,test,a,test,test,test,10,RH,test,test,idling,0,0,15
+6,pickup & delivery,test,test,b,test,test,test,10,RH,test,test,road,20,30,41
+6,pickup & delivery,test,test,b,test,test,test,10,RH,test,test,road,30,40,32
+6,pickup & delivery,test,test,b,test,test,test,10,RH,test,test,road,40,50,22
+6,pickup & delivery,test,test,b,test,test,test,10,RH,test,test,idling,0,0,5
