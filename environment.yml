@@ -5,3 +5,6 @@ dependencies:
   - r-shiny
   - r-shinydashboard
   - r-shinythemes
+  - r-glue
+  - r-ggplot2
+  - r-gridExtra
