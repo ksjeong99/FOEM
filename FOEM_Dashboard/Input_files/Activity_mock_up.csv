@@ -1,5 +1,0 @@
-weight class,vehicle type,duty cycle,Assumption Source,powertrain type,simulation weight,empty weight,cargo capacity,baseline mpg,segment,classfier_1,classfier_2,n_trips,mean_dist,mean_OR_time,mean_idling_time,mean_stop_time,n_idling,n_stops
-8,sleeper tractor,test,test,a,test,test,test,5,LH,test,test,3,120,220,10,20,4,3
-8,sleeper tractor,test,test,b,test,test,test,5,LH,test,test,2,100,150,8,20,5,2
-6,pickup & delivery,test,test,a,test,test,test,10,RH,test,test,10,30,60,20,30,15,9
-6,pickup & delivery,test,test,b,test,test,test,10,RH,test,test,10,30,75,25,45,20,9
