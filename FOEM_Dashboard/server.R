@@ -111,7 +111,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){
                                                                                     Scenario_Mdollar= sum(discounted_cost)/10^6, .groups = 'drop')
       result_df= merge(B_by_op_seg,S_by_op_seg, by = c('op_segment', 'analysis_year'))
       result_df= subset(result_df, analysis_year<=2050)
-      result_df= subset(result_df, select =-c(X))
+      #result_df= subset(result_df, select =-c(X))
       if (lv =="total"){
         g_energy=ggplot(data=result_df)+
           geom_line(aes(x=analysis_year, y=Base_Mbtu, group=op_segment, color=op_segment), linetype=line_types[['Base']])+
@@ -176,7 +176,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){
                                                                      Scenario_Mdollar= sum(discounted_cost)/10^6, .groups = 'drop')
       result_df =merge(B_system,S_system, by = 'analysis_year')
       result_df= subset(result_df, analysis_year<=2050)
-      result_df= subset(result_df, select =-c(X))
+      #result_df= subset(result_df, select =-c(X))
       if (lv =="total"){
         g_energy=ggplot(data=result_df)+
           geom_line(aes(x=analysis_year, y=Base_Mbtu), linetype=line_types[['Base']])+
