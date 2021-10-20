@@ -164,13 +164,22 @@ function(input, output, session) {
     }
   })
   
-  output$plot = renderPlot({
+  output$plot1 = renderPlot({
     if (input$submitbutton>0) {
       rst <- datasetInput()
-      p1 <-  rst[[2]]
-      p2 <- rst[[3]]
-      p3 <- rst[[4]]
-      grid.arrange(p1,p2,p3, nrow=3)
+      print (rst[[2]])
+    }})
+  
+  output$plot2 = renderPlot({
+    if (input$submitbutton>0) {
+      rst <- datasetInput()
+      print (rst[[3]])
+    }})
+  
+  output$plot3 = renderPlot({
+    if (input$submitbutton>0) {
+      rst <- datasetInput()
+      print (rst[[4]])
     }})
   
 }
