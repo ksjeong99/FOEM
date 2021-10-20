@@ -1,6 +1,0 @@
-install.packages("ggplot2")
-install.packages("dplyr")
-install.packages("glue")
-install.packages("shinydashboard")
-install.packages('shiny')
-install.packages('gridExtra')
