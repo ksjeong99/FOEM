@@ -10,6 +10,10 @@ fluidPage(theme = shinytheme("cyborg"),
                      # side panel
                      sidebarPanel(
                        HTML("<h3>Select an analysis level and technology scenarios</h3>"),
+                       selectInput("lv", label = "Unit:", 
+                                   choices = list("Levelized (/miles)" = "level",
+                                                  "Total" = "total"),
+                                   selected = "Levelized (/miles)"), 
                        # Select group_by
                        selectInput("group", label = "Analysis Level:", 
                                    choices = list("Segment-level" = "segment",
