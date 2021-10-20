@@ -29,19 +29,19 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group){
         geom_line(aes(x=analysis_year, y=Base_btu_per_mi, group=op_segment, color=op_segment), linetype=line_types[['Base']])+
         xlab("Year")+
         ylab("BTU/miles")+
-        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="yellow"))+
+        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="purple"))+
         ggtitle("Levelized Energy")
       g_cost=ggplot(data=result_df)+
         geom_line(aes(x=analysis_year, y=Base_dolar_per_mi, group=op_segment, color=op_segment), linetype=line_types[['Base']])+
         xlab("Year")+
         ylab("$/miles")+
-        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="yellow"))+
+        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="purple"))+
         ggtitle("Levelized Operational Cost")
       g_emission=ggplot(data=result_df)+
         geom_line(aes(x=analysis_year, y=Base_co2kg_per_mi, group=op_segment, color=op_segment), linetype=line_types[['Base']])+
         xlab("Year")+
         ylab("Co2_kg/miles")+
-        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="yellow"))+
+        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="purple"))+
         ggtitle("Levelized Well to Wheel Co2 Emission")
     } else {
       result_df = subset(B_system,analysis_year <=2050)
@@ -74,7 +74,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group){
         geom_line(aes(x=analysis_year, y=Scenario_btu_per_mi, group=op_segment, color=op_segment), linetype=line_types[["Scenario"]])+
         xlab("Year")+
         ylab("BTU/miles")+
-        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="yellow"))+
+        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="purple"))+
         ggtitle("Levelized Energy: baseline(dashed), scenario(solid)")+
         scale_linetype_manual(name="", values=c("base"="dashed", "scenario"="solid"))
       print (g_energy)
@@ -83,7 +83,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group){
         geom_line(aes(x=analysis_year, y=Scenario_dolar_per_mi, group=op_segment, color=op_segment), linetype=line_types[["Scenario"]])+
         xlab("Year")+
         ylab("$/miles")+
-        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="yellow"))+
+        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="purple"))+
         ggtitle("Levelized Operational Cost: baseline(dashed), scenario(solid)")+
         scale_linetype_manual(values=line_types)
       g_emission=ggplot(data=result_df)+
@@ -91,7 +91,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group){
         geom_line(aes(x=analysis_year, y=Scenario_co2kg_per_mi, group=op_segment, color=op_segment), linetype=line_types[["Scenario"]])+
         xlab("Year")+
         ylab("Co2_kg/miles")+
-        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="yellow"))+
+        scale_color_manual(name ="",values = c("First-mile"="darkred","Last-mile"="blue", "Local-Regional"="green", "Long-haul"="purple"))+
         ggtitle("Levelized Well to Wheel Co2 Emission: baseline(dashed), scenario(solid)")+
         scale_linetype_manual(values=line_types)
       
