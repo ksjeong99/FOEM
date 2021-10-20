@@ -57,8 +57,8 @@ fluidPage(theme = shinytheme("cyborg"),
                          tabPanel("Emission", plotOutput("plot3")), 
                          tabPanel("Table", downloadButton("downloadData", label ="Download"), tableOutput("table")))
                      )), # Navbar 1, tabPanel
-            tabPanel("Technology Definition", titlePanel("Technology Definition"),div(includeMarkdown(paste0(dir_name_2, "TechD.md")), align="justify")),
-            tabPanel("About", titlePanel("About"), div(includeMarkdown(paste0(dir_name_2,"About.md")), align="justify"))
+            tabPanel("Technology Definition", titlePanel("Technology Definition"),div(includeMarkdown("TechD.md"), align="justify")),
+            tabPanel("About", titlePanel("About"), div(includeMarkdown("About.md"), align="justify"))
             
           ) # navbarPage
 ) # fluidPage
