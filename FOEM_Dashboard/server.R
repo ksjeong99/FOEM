@@ -138,8 +138,9 @@ function(input, output, session) {
   output$testHTML <- renderText({
     if (input$submitbutton>0) {
       paste("<b>Status: Metrics are calculated at the", input$group, "level", "<br>", 
-            "You have selcted </br>",
-            input$s_dmd,  "<br>", input$s_pload,  "<br>", input$s_ptrain,  "<br>", input$s_conn,  "<br>", input$s_energy, "<br>")
+            "You have selected: </br>","<ul>",
+            "<li>", input$s_dmd,  "</li>", "<li>", input$s_pload,  "</li>",
+            "<li>", input$s_ptrain,  "</li>", "<li>", input$s_conn,  "</li>", "<li>", input$s_energy, "</li>", "</ul>")
     } else {
       paste("<b>Status: Server is ready for calculation.")
     }

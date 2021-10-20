@@ -6,7 +6,7 @@ fluidPage(theme = shinytheme("cyborg"),
             "Freight Operation Efficiency Metric (FOEM)",
             tabPanel("Calculator",
                      # Page header
-                     headerPanel('Impact of technology scenario on various metrics?'),
+                     headerPanel('Impact of technology scenarios'),
                      # side panel
                      sidebarPanel(
                        HTML("<h3>Select an analysis level and technology scenarios</h3>"),
