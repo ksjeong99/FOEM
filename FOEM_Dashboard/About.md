@@ -10,7 +10,7 @@ While there are limitations to the approach, methodology, and assumptions used i
 + Principal Investigator: Dr. Alicia Birky
 + Researchers: Dr. Kyungsoo Jeong, Brennan Borlaug, Dr. Chen Zhang
 
-[Contact us](alicia.birky@nrel.gov) to learn more about FOEM or explore related partnership opportunities.
+[Contact us](mailto:alicia.birky@nrel.gov) to learn more about FOEM or explore related partnership opportunities.
 
 ### Acknowledgement
 
