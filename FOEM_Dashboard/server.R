@@ -240,8 +240,8 @@ function(input, output, session) {
     if (input$submitbutton>0) {
       paste("<b>Status: Metrics are calculated at the", input$group, "level", "<br>", 
             "You have selected: </br>","<ul>",
-            "<li>", input$s_dmd,  "</li>", "<li>", input$s_pload,  "</li>",
-            "<li>", input$s_ptrain,  "</li>", "<li>", input$s_conn,  "</li>", "<li>", input$s_energy, "</li>", "</ul>")
+            "<li><b>", input$s_dmd,  "</b></li>", "<li><b>", input$s_pload,  "</b></li>",
+            "<li><b>", input$s_ptrain,  "</b></li>", "<li><b>", input$s_conn,  "</b></li>", "<li><b>", input$s_energy, "</b></li>", "</ul>")
     } else {
       paste("<b>Status: Server is ready for calculation.")
     }
