@@ -23,7 +23,7 @@ fluidPage(theme = shinytheme("cyborg"),
                        # Select Frieght Projection
                        selectInput("s_dmd", label ="Freight Demand Projection:",
                                    choices = list("BAU-freightProj" ="BAU-freightProj",
-                                                  "ECommerce-freightProj" = "ECommerce-freightProj"),
+                                                  "Logistical Changes" = "ECommerce-freightProj"),
                                    selected = "BAU-freightProj"),
                        
                        # select Payload factor scenario
