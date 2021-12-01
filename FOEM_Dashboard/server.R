@@ -15,6 +15,7 @@ dir_name_1="Inputs/"
 ####################################
 
 metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){ 
+  if (s_dmd == "Logistical Changes") {s_dmd ="ECommerce-freightProj"}  
   B_by_op_seg = read.csv(glue('{dir_name_1}base_by_op_seg.csv'), stringsAsFactors = F)
   B_system = read.csv(glue('{dir_name_1}base_system.csv'), stringsAsFactors = F)
   line_types <- c("Base"="dashed","Scenario"="solid")
