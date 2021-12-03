@@ -3,8 +3,6 @@ library("glue")
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
-library(shinyauthr)     # shiny authentication modules
-library(sodium)         # crypto library
 
 ####################################
 # set directory and files          #
@@ -15,7 +13,7 @@ dir_name_1="Inputs/"
 ####################################
 # Merics functions                #
 ####################################
-
+source("module_login.R")
 metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){ 
   if (s_dmd == "Logistical Changes") {s_dmd ="ECommerce-freightProj"}  
   B_by_op_seg = read.csv(glue('{dir_name_1}base_by_op_seg.csv'), stringsAsFactors = F)
@@ -232,28 +230,21 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){
 }
 
 function(input, output, session) {
-   user_base <- tibble::tibble(
-    user = c("FOEM"),
-    password = c("21ctp"),
-    permissions = c("admin"),
-    name = c("Tester")
+  user_base_module_tbl <- tibble(
+    user_name = "FOEM",
+    password  = "21ctp"
   )
-  credentials <- shinyauthr::loginServer(
-    id = "login",
-    data = user_base,
-    user_col = user,
-    pwd_col = password,
-    log_out = reactive(logout_init())
+  validate_password_module <- callModule(
+    module   = validate_pwd, 
+    id       = "module_login", 
+    data     = user_base_module_tbl, 
+    user_col = user_name, 
+    pwd_col  = password
   )
   
-  # call the logout module with reactive trigger to hide/show
-  logout_init <- shinyauthr::logoutServer(
-    id = "logout",
-    active = reactive(credentials()$user_auth)
-  )
   output$display_content_authr <- renderUI({
     
-    req(credentials()$user_auth)
+    req(validate_password_module())
     
     navbarPage("Freight Operation Efficiency Metric (FOEM)",
     tabPanel("Calculator",
