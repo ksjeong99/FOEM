@@ -10,6 +10,5 @@ dependencies:
   - r-gridExtra
   - r-dplyr
   - r-shinyauthr
-  - r-sodium
   
   
