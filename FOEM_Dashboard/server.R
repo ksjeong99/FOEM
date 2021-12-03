@@ -3,6 +3,7 @@ library("glue")
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
+library(shinyjs)  
 
 ####################################
 # set directory and files          #
@@ -232,7 +233,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){
 function(input, output, session) {
   user_base_module_tbl <- tibble(
     user_name = "FOEM",
-    password  = "test"
+    password  = "21ctp_eval"
   )
   validate_password_module <- callModule(
     module   = validate_pwd, 
