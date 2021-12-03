@@ -9,6 +9,5 @@ dependencies:
   - r-ggplot2
   - r-gridExtra
   - r-dplyr
-  - shinyauthr
   
   
