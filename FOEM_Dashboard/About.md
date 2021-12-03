@@ -15,3 +15,8 @@ While there are limitations to the approach, methodology, and assumptions used i
 ### Acknowledgement
 
 This work was authored by NREL, operated by Alliance for Sustainable Energy, LLC, for the U.S. Department of Energy (DOE) under Contract No. DE-AC36-08GO28308. Funding was provided by the DOE Vehicle Technologies Office’s under the Technology Integration Program. The authors would like to thank Michael Laughlin and Mark Smith for their program and technical support. The authors acknowledge the valuable insights provided by industry and National Laboratory members of the 21CTP FOETT. Thanks especially to the FOETT analysis working group members. 
+
+
+### Disclaimer
+
+This tool is in alpha and any results are preliminary and don't necessarily reflect the views of 21 CTP. 
