@@ -9,4 +9,7 @@ dependencies:
   - r-ggplot2
   - r-gridExtra
   - r-dplyr
+  - r-shinyauthr
+  - r-sodium
+  
   
