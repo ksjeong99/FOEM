@@ -1,9 +1,8 @@
 library(shiny)
 library(shinythemes)
-library(shinyauthr)     # shiny authentication modules
-library(sodium) 
 
+source("module_login.R")
 fluidPage(theme = shinytheme("cyborg"),
-          shinyauthr::loginUI(id = "login"),
+          login_ui(id = "module_login", title = "Please login"),
           uiOutput(outputId = "display_content_authr")
          ) # fluidPage
