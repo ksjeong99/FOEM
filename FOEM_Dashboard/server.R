@@ -232,7 +232,7 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){
 function(input, output, session) {
   user_base_module_tbl <- tibble(
     user_name = "FOEM",
-    password  = "21ctp"
+    password  = "test"
   )
   validate_password_module <- callModule(
     module   = validate_pwd, 
