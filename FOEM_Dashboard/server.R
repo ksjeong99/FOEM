@@ -3,6 +3,8 @@ library("glue")
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
+library(shinyauthr)     # shiny authentication modules
+library(sodium)         # crypto library
 
 ####################################
 # set directory and files          #
@@ -230,7 +232,93 @@ metric_cal =function (s_dmd, s_pload, s_ptrain, s_conn, s_energy, group, lv){
 }
 
 function(input, output, session) {
+   user_base <- tibble::tibble(
+    user = c("FOEM"),
+    password = c("21ctp"),
+    permissions = c("admin"),
+    name = c("Tester")
+  )
+  credentials <- shinyauthr::loginServer(
+    id = "login",
+    data = user_base,
+    user_col = user,
+    pwd_col = password,
+    log_out = reactive(logout_init())
+  )
   
+  # call the logout module with reactive trigger to hide/show
+  logout_init <- shinyauthr::logoutServer(
+    id = "logout",
+    active = reactive(credentials()$user_auth)
+  )
+  output$display_content_authr <- renderUI({
+    
+    req(credentials()$user_auth)
+    
+    navbarPage("Freight Operation Efficiency Metric (FOEM)",
+    tabPanel("Calculator",
+             # Page header
+             headerPanel('Impact of technology scenarios'),
+             # side panel
+             sidebarPanel(
+               HTML("<h3>Select an analysis level and technology scenarios</h3>"),
+               selectInput("lv", label = "Unit:", 
+                           choices = list("Levelized (/miles)" = "level",
+                                          "Total" = "total"),
+                           selected = "Levelized (/miles)"), 
+               # Select group_by
+               selectInput("group", label = "Analysis Level:", 
+                           choices = list("Segment-level" = "segment",
+                                          "System-level" = "system"),
+                           selected = "Segment-level"),                             
+
+               # Select Frieght Projection
+               selectInput("s_dmd", label ="Freight Demand Projection:",
+                           choices = list("BAU-freightProj" ="BAU-freightProj",
+                                          "Logistical Changes" = "Logistical Changes"),
+                           selected = "BAU-freightProj"),
+
+               # select Payload factor scenario
+               selectInput("s_pload", label ="Payload:",
+                           choices = list("BAU-payload"="BAU-payload",
+                                          "+10%-payload"="+10%-payload"),
+                           selected = "BAU-payload"),
+
+               # Select powertrain
+               selectInput("s_ptrain", label ="Powertrain Adoption:",
+                           choices = list("AEO21-powertrainAdopt" = "AEO21-powertrainAdopt",
+                                          "MidZEV-powertrainAdopt" = "MidZEV-powertrainAdopt",
+                                          "HighZEV-powertrainAdopt" = "HighZEV-powertrainAdopt"), 
+                           selected = "AEO21-powertrainAdopt"),
+               # select Connectivity scenario
+               selectInput("s_conn", label ="Connectivity:",
+                           choices = list("BAU-connectivity"="BAU-connectivity",
+                                          "HC-connectivity"="HC-connectivity"),
+                           selected = "BAU-connectivity"),                               
+
+               # select carbon emissions scenario
+               selectInput("s_energy", label ="Carbon Emissions:",
+                           choices = list("Base-wtwEmissions"= "Base-wtwEmissions",               
+                                          "HighRenewable-wtwEmissions"="HighRenewable-wtwEmissions"),
+                           selected = "Base-wtwEmissions"),
+
+               actionButton("submitbutton", "Submit", class = "btn btn-primary")
+             ), # sidebarPanel
+             mainPanel(
+               tags$label(h3('Status/Output')), # Status/Output Text Box
+               htmlOutput("testHTML"),
+               tabsetPanel(
+                 tabPanel("Energy", plotOutput("plot1")),
+                 tabPanel("Cost", plotOutput("plot2")), 
+                 tabPanel("Emission", plotOutput("plot3")), 
+                 tabPanel("Table", downloadButton("downloadData", label ="Download"), tableOutput("table")))
+             )), # Navbar 1, tabPanel
+    tabPanel("Methodology", titlePanel("Methodology"),div(includeMarkdown("TechD.md"), align="justify")),
+    tabPanel("About", titlePanel("About"), div(includeMarkdown("About.md"), align="justify"))
+
+  ) # navbarPage
+    })
+    
   # Input Data
   datasetInput <- reactive({  
     rst <- metric_cal(input$s_dmd, input$s_pload, input$s_ptrain, input$s_conn, input$s_energy, input$group, input$lv)
