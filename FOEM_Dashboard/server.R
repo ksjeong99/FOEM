@@ -303,7 +303,7 @@ function(input, output, session) {
                  tabPanel("Energy", plotOutput("plot1"), verbatimTextOutput("decl1")),
                  tabPanel("Cost", plotOutput("plot2"), verbatimTextOutput("decl2")), 
                  tabPanel("Emission", plotOutput("plot3"), verbatimTextOutput("decl3")), 
-                 tabPanel("Table", downloadButton("downloadData", label ="Download"), tableOutput("table")))
+                 tabPanel("Table", downloadButton("downloadData", label ="Download"), verbatimTextOutput("decl4"), tableOutput("table")))
              )), # Navbar 1, tabPanel
     tabPanel("Methodology", titlePanel("Methodology"),div(includeMarkdown("TechD.md"), align="justify")),
     tabPanel("About", titlePanel("About"), div(includeMarkdown("About.md"), align="justify"))
@@ -385,7 +385,12 @@ function(input, output, session) {
       paste("Disclaimer:", "This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only.", 
             "The scenarios and results presented do not necessarily reflect the views of DOE, the 21 CTP, or its members.", sep="\n")
     }})
-  
+   output$decl4 = renderText({
+    if (input$submitbutton>0) {
+      rst <- datasetInput()
+      paste("Disclaimer:", "This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only.", 
+            "The scenarios and results presented do not necessarily reflect the views of DOE, the 21 CTP, or its members.", sep="\n")
+    }})  
 }
   
 
