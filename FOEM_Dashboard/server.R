@@ -300,7 +300,7 @@ function(input, output, session) {
                tags$label(h3('Status/Output')), # Status/Output Text Box
                htmlOutput("testHTML"),
                tabsetPanel(
-                 tabPanel("Energy", plotOutput("plot1")),
+                 tabPanel("Energy", plotOutput("plot1"), verbatimTextOutput("decl")),
                  tabPanel("Cost", plotOutput("plot2")), 
                  tabPanel("Emission", plotOutput("plot3")), 
                  tabPanel("Table", downloadButton("downloadData", label ="Download"), tableOutput("table")))
@@ -363,6 +363,12 @@ function(input, output, session) {
     if (input$submitbutton>0) {
       rst <- datasetInput()
       print (rst[[4]])
+    }})
+  
+   output$decl = renderText({
+    if (input$submitbutton>0) {
+      rst <- datasetInput()
+      "Disclaimer: This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only. The scenarios and results presented do not necessarily reflect the views of DOE, the 21 CTP, or its members."
     }})
   
 }
