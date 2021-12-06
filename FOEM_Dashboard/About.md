@@ -19,4 +19,4 @@ This work was authored by NREL, operated by Alliance for Sustainable Energy, LLC
 
 ### Disclaimer
 
-This tool is in alpha and any results are preliminary and don't necessarily reflect the views of 21 CTP. 
+This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only. The scenarios and results presented do not necessarily reflect the views of DOE, the 21 CTP, or its members.
