@@ -1,6 +1,6 @@
 library(shiny)
 library(shinythemes)
-
+library(shinyjs)
 
 source("module_login.R")
 fluidPage(theme = shinytheme("cyborg"),
