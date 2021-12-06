@@ -301,9 +301,9 @@ function(input, output, session) {
                htmlOutput("testHTML"),
                tabsetPanel(
                  tabPanel("Energy", plotOutput("plot1"), verbatimTextOutput("decl")),
-                 tabPanel("Cost", plotOutput("plot2"), verbatimTextOutput("decl")), 
-                 tabPanel("Emission", plotOutput("plot3"), verbatimTextOutput("decl")), 
-                 tabPanel("Table", downloadButton("downloadData", label ="Download"), verbatimTextOutput("decl"), tableOutput("table")))
+                 tabPanel("Cost", plotOutput("plot2")), 
+                 tabPanel("Emission", plotOutput("plot3")), 
+                 tabPanel("Table", downloadButton("downloadData", label ="Download"), tableOutput("table")))
              )), # Navbar 1, tabPanel
     tabPanel("Methodology", titlePanel("Methodology"),div(includeMarkdown("TechD.md"), align="justify")),
     tabPanel("About", titlePanel("About"), div(includeMarkdown("About.md"), align="justify"))
