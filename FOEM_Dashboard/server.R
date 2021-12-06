@@ -3,7 +3,7 @@ library("glue")
 library(dplyr)
 library(ggplot2)
 library(gridExtra)
-#library(shinyjs)  
+library(shinyjs)  
 
 ####################################
 # set directory and files          #
