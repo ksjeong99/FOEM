@@ -303,7 +303,7 @@ function(input, output, session) {
                  tabPanel("Energy", plotOutput("plot1"), verbatimTextOutput("decl")),
                  tabPanel("Cost", plotOutput("plot2"), verbatimTextOutput("decl")), 
                  tabPanel("Emission", plotOutput("plot3"), verbatimTextOutput("decl")), 
-                 tabPanel("Table", downloadButton("downloadData", label ="Download"),, verbatimTextOutput("decl"), tableOutput("table")))
+                 tabPanel("Table", downloadButton("downloadData", label ="Download"), verbatimTextOutput("decl"), tableOutput("table")))
              )), # Navbar 1, tabPanel
     tabPanel("Methodology", titlePanel("Methodology"),div(includeMarkdown("TechD.md"), align="justify")),
     tabPanel("About", titlePanel("About"), div(includeMarkdown("About.md"), align="justify"))
