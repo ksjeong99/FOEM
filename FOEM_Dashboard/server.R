@@ -300,9 +300,9 @@ function(input, output, session) {
                tags$label(h3('Status/Output')), # Status/Output Text Box
                htmlOutput("testHTML"),
                tabsetPanel(
-                 tabPanel("Energy", plotOutput("plot1"), verbatimTextOutput("decl")),
-                 tabPanel("Cost", plotOutput("plot2")), 
-                 tabPanel("Emission", plotOutput("plot3")), 
+                 tabPanel("Energy", plotOutput("plot1"), verbatimTextOutput("decl1")),
+                 tabPanel("Cost", plotOutput("plot2"), verbatimTextOutput("decl2")), 
+                 tabPanel("Emission", plotOutput("plot3"), verbatimTextOutput("decl3")), 
                  tabPanel("Table", downloadButton("downloadData", label ="Download"), tableOutput("table")))
              )), # Navbar 1, tabPanel
     tabPanel("Methodology", titlePanel("Methodology"),div(includeMarkdown("TechD.md"), align="justify")),
@@ -365,7 +365,21 @@ function(input, output, session) {
       print (rst[[4]])
     }})
   
-   output$decl = renderText({
+   output$decl1 = renderText({
+    if (input$submitbutton>0) {
+      rst <- datasetInput()
+      paste("Disclaimer:", "This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only.", 
+            "The scenarios and results presented do not necessarily reflect the views of DOE, the 21 CTP, or its members.", sep="\n")
+    }})
+   
+   output$decl2 = renderText({
+    if (input$submitbutton>0) {
+      rst <- datasetInput()
+      paste("Disclaimer:", "This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only.", 
+            "The scenarios and results presented do not necessarily reflect the views of DOE, the 21 CTP, or its members.", sep="\n")
+    }})
+   
+   output$decl3 = renderText({
     if (input$submitbutton>0) {
       rst <- datasetInput()
       paste("Disclaimer:", "This preliminary implementation of the FOEM tool is intended for internal Freight Operational Tech Team and Working Group use only.", 
