@@ -62,9 +62,9 @@ validate_pwd <- function(input, output, session,
     }
     
     # hide login form when user is confirmed
-    if (validate) {
-      shinyjs::hide(id = "login")
-    }
+ #   if (validate) {
+ #     shinyjs::hide(id = "login")
+ #   }
     
     validate
   })
